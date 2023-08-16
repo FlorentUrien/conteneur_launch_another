@@ -17,8 +17,11 @@ def test():
     print(output)
 
     try:
+        print("client ?")
         client = docker.from_env()
         print(client)
+        client.containers.run("sonarqube:latest", "sleep infinity", detach=True)
+        print("ok")
     except Exception as e:
         print(e)
 
